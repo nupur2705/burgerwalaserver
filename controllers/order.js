@@ -13,8 +13,8 @@ export const placeOrder = asyncError(async (req, res, next) => {
         totalAmount,
     } = req.body;
   
-    const user = "req.user._id";
-  
+    // const user =  {_id:'660adb521a4a87399ed1049f'};
+    const user= req.user._id ;
     const orderOptions = {
         shippingInfo,
         orderItems,
@@ -34,4 +34,6 @@ export const placeOrder = asyncError(async (req, res, next) => {
     });
   });
 
-  
+  export const getMyOrders=asyncError(async(req,res,next)=>{
+
+  });

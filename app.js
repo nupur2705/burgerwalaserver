@@ -31,6 +31,6 @@ connectPassport();
 import userRoute from "./routes/user.js";
 import orderRoute from "./routes/order.js";
 app.use("/api/v1",userRoute);
-app.use("api/v1",orderRoute);
+app.use("/api/v1",orderRoute);
 
 app.use(errorMiddleware);
