@@ -1,6 +1,6 @@
 import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 import passport from "passport";
-import { User } from "../models/User.js";
+import { User } from "../models/user.js";
 
 export const connectPassport = () => {
   passport.use(
@@ -14,12 +14,13 @@ export const connectPassport = () => {
         const user = await User.findOne({
           googleId: profile.id,
         });
-
+console.log(user);
         if (!user) {
           const newUser = await User.create({
             googleId: profile.id,
             name: profile.displayName,
             photo: profile.photos[0].value,
+            
           });
 
           return done(null, newUser);
